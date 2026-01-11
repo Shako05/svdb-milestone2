@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Svdb Milestone 2</title>
+  </head>
+  <body>
+    <h1><span id="user">Loading...</span> has reached milestone 2!</h1>
+    <p>Container ID: <span id="containerid">Loading...</span></p>
+
+    <script>
+    // Ingress routes /api → api-service
+    fetch("/api/user")
+      .then(res => res.json())
+      .then(data => { document.getElementById("user").innerText = data.name; });
+    fetch("/api/containerid")
+      .then(res => res.json())
+      .then(data => { document.getElementById("containerid").innerText = data.container_id; });
+    </script>
+  </body>
+</html>
